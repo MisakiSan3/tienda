@@ -5,7 +5,7 @@ import { NoFoundComponent } from './no-found/no-found.component';
 
 const routes: Routes = [
   {path: "", redirectTo:"dashboard", pathMatch:"full"},
-  //{path: "dashboard", loadChildren: () => import("./web/web.module").then (m => m.WebModule)},
+  {path: "dashboard", loadChildren: () => import("./web/web.module").then (m => m.WebModule)},
   {path: "**", component: NoFoundComponent}
 ];
 
