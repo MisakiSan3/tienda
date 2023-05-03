@@ -5,13 +5,13 @@ import { ProductsComponent } from './products/products.component';
 import { WebComponent } from './web.component';
 
 const routes: Routes = [
-  {path: "dashboard",component:WebComponent,
+  {path: "dashboard2",component:WebComponent,
   children:[
     {path: "", component: HomeComponent},
     {path: "products", component: ProductsComponent}
   ]},
-  
-  
+
+
 ];
 
 @NgModule({

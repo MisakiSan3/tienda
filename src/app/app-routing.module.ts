@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { WebRoutingRoutingModule } from './web/web-routing-routing.module';
+import { PagesRoutingModule } from './pages/pages-routing.module';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 import { NoFoundComponent } from './no-found/no-found.component';
+import { WebRoutingModule } from './web/web-routing.module';
 
-const routes: Routes = [
-  {path: "", redirectTo:"dashboard", pathMatch:"full"},
-  {path: "dashboard", loadChildren: () => import("./web/web.module").then (m => m.WebModule)},
-  {path: "**", component: NoFoundComponent}
-];
 
+const routes :Routes =[
+  {path:'',redirectTo:'dashboard',pathMatch:'full'},
+  {path:'**',component:NoFoundComponent},
+]
 @NgModule({
-  imports: [RouterModule.forRoot(routes),
-  WebRoutingRoutingModule
+  declarations: [],
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    PagesRoutingModule,
+    WebRoutingModule,
+    RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports:[RouterModule],
 })
 export class AppRoutingModule { }
